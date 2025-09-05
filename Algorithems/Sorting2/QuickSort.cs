@@ -106,10 +106,10 @@ namespace Algorithems.Sorting2
         {
             int n = arr.Length;
             int largest = arr[0];
-            for (int i = n-1; i >=1; i--)
+            for (int i = n - 1; i >= 1; i--)
             {
                 (arr[0], arr[i]) = (arr[i], arr[0]);
-                Heapify(arr,0,i);
+                Heapify(arr, 0, i);
             }
         }
 
@@ -144,5 +144,110 @@ namespace Algorithems.Sorting2
         }
     }
 
-    
+    public class MaxPriorityQueue
+    {
+        private List<int> heap = new List<int>();
+
+        public int Count => heap.Count;
+        public bool IsEmpty => heap.Count == 0;
+
+        public MaxPriorityQueue() { }
+
+        public MaxPriorityQueue(IEnumerable<int> items)
+        {
+            heap = new List<int>(items);
+            BuildHeap();
+        }
+
+        public void Insert(int value)
+        {
+            heap.Add(value);
+            SiftUp(heap.Count-1);
+        }
+
+        public int PeekMax()
+        {
+            if (IsEmpty) throw new InvalidOperationException("PriorityQueue is empty.");
+            return heap[0];
+        }
+
+        public int ExtractMax()
+        {
+            if (IsEmpty) throw new InvalidOperationException("PriorityQueue is empty.");
+
+            int max = heap[0];
+            int lastIndex = heap.Count - 1;
+
+            heap[0] = heap[lastIndex];
+            heap.RemoveAt(lastIndex);
+            if (!IsEmpty)
+                SiftDown(0);
+                return 0;
+
+            return max;
+        }
+
+        private void Swap(int i, int j)
+        {
+            (heap[i], heap[j]) = (heap[i], heap[j]);
+        }
+
+        private void SiftUp(int index)
+        {
+            int current = index;
+            while (current > 0)
+            {
+                int parrent = (current - 1) / 2;
+                if (heap[parrent] < heap[current])
+                {
+                    Swap(current, parrent);
+                    current = parrent;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+        }
+
+        private void SiftDown(int index)
+        {
+            int current = index;
+            int n = heap.Count;
+            while (true)
+            {
+                int left = current * 2 + 1;
+                int right = current * 2 + 2;
+                int largest = current;
+
+                if (left < n && heap[left] > heap[current])
+                {
+                    largest = left;
+                }
+                if (right < n && heap[right] > heap[current])
+                {
+                    largest = right;
+                }
+
+                if (current == largest)
+                {
+                    break;
+                }
+
+                Swap(current, largest);
+                current = largest;
+            }
+        }
+
+        private void BuildHeap()
+        {
+            int n = heap.Count;
+            for (int i = n / 2 - 1; i >= 0; i--)
+            {
+                SiftDown(i);
+            }
+        }
+        public override string ToString() => string.Join(", ", heap);
+    }
 }

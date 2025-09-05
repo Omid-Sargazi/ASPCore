@@ -11,4 +11,13 @@ int[] arr2= new int[] { 1, 2, 3 };
 // Sorting.InsertionSort(arr1);
 // Sorting2.QuickSort(arr1,0,arr1.Length-1);
 // Sorting2.MergeSort(arr1);
-HeapMax.Run(arr1);
+// HeapMax.Run(arr1);
+
+Span<int> slice = arr1.AsSpan(1, 3);
+foreach (var item in slice)
+{
+    Console.WriteLine($"slice: {item}");
+}
+
+slice[0] = 99;
+Console.WriteLine(arr1[1]);

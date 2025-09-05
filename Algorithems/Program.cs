@@ -7,4 +7,5 @@ int[] arr2= new int[] { 1, 2, 3 };
 
 // Sorting.Bubble(arr1);
 // Sorting.SelectionSort(arr1);
-Sorting.InsertionSort(arr1);
+// Sorting.InsertionSort(arr1);
+Sorting.QuickSort(arr1,0,arr1.Length-1);

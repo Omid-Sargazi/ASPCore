@@ -56,5 +56,34 @@ namespace Algorithems.Sortings
             Console.WriteLine($"{string.Join(", ", arr)}");
 
         }
+
+        public static void QuickSort(int[] arr, int lo, int hi)
+        {
+            if (lo>=hi) return;
+            // int n = arr.Length - 1;
+            int pi = Partition(arr, lo, hi);
+            QuickSort(arr, lo, pi - 1);
+            QuickSort(arr, pi + 1, hi);
+
+            Console.WriteLine($"{string.Join(", ", arr)}");
+        }
+
+        private static int Partition(int[] arr, int lo, int hi)
+        {
+            int pivot = arr[hi];
+            int i = lo - 1;
+            for (int j = lo; j < hi; j++)
+            {
+                if (arr[j] < pivot)
+                {
+                    i++;
+                    (arr[i], arr[j]) = (arr[j], arr[i]);
+                }
+
+            }
+                (arr[i + 1], arr[hi]) = (arr[hi], arr[i + 1]);
+
+            return i + 1;
+        }
     }
 }

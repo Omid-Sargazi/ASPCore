@@ -176,3 +176,6 @@
 /home/omidsa/Programmings/AspCore/ECommerceAPI/API/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Physical.dll
 /home/omidsa/Programmings/AspCore/ECommerceAPI/API/bin/Debug/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll
 /home/omidsa/Programmings/AspCore/ECommerceAPI/API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
+/home/omidsa/Programmings/AspCore/ECommerceAPI/API/bin/Debug/net8.0/FluentValidation.dll
+/home/omidsa/Programmings/AspCore/ECommerceAPI/API/bin/Debug/net8.0/FluentValidation.AspNetCore.dll
+/home/omidsa/Programmings/AspCore/ECommerceAPI/API/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll

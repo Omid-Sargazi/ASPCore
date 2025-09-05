@@ -50,7 +50,9 @@
 using API;
 using Application.Features.Products.Handlers;
 using Application.Mappings;
+using Application.Validators;
 using Core.Interfaces;
+using FluentValidation;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using MediatR;
@@ -69,6 +71,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>
 // builder.Services.AddMediatR(typeof(Program).Assembly);
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddMediatR(typeof(CreateProductCommandHandler).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidator).Assembly);
 
 // builder.Services.AddScoped<IRepository,Repository>();
 

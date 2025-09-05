@@ -23,7 +23,11 @@ namespace Application.Features.Products.Handlers
         public async Task<IEnumerable<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _unitOfWork.Products.GetAllAsync();
-            return _mapper.Map<IEnumerable<ProductDto>>(products);
+
+            var paginatedProducts = products.Skip((request.PageNumber-1)*request.PageSize)
+            .Take(request.PageSize);
+
+            return _mapper.Map<IEnumerable<ProductDto>>(paginatedProducts);
         }
     }
 }

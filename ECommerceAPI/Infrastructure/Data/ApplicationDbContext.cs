@@ -17,6 +17,17 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Category>()
+            .HasMany(c=>c.Products)
+            .WithOne(p=>p.Category)
+            .HasForeignKey(p=>p.CategoryId);
+
+            modelBuilder.Entity<Order>()
+            .HasMany(o=>o.Products)
+            .WithMany(p=>p.Orders)
+            .UsingEntity(j=>j.ToTable("OrderProducts"));
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Category>().HasData(

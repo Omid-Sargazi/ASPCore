@@ -7,5 +7,5 @@ using MediatR;
 
 namespace Application.Features.Products.Queries
 {
-    public record GetProductsQuery:IRequest<IEnumerable<ProductDto>>;
+    public record GetProductsQuery(int PageNumber=1,int PageSize=10):IRequest<IEnumerable<ProductDto>>;
 }

@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Algorithems.Sorting2;
 using Algorithems.Sortings;
 
 Console.WriteLine("Hello, World!");
@@ -8,4 +9,4 @@ int[] arr2= new int[] { 1, 2, 3 };
 // Sorting.Bubble(arr1);
 // Sorting.SelectionSort(arr1);
 // Sorting.InsertionSort(arr1);
-Sorting.QuickSort(arr1,0,arr1.Length-1);
+Sorting2.QuickSort(arr1,0,arr1.Length-1);

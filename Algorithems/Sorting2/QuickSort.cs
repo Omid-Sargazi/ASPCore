@@ -31,7 +31,7 @@ namespace Algorithems.Sorting2
 
         public static void MergeSort(int[] arr)
         {
-            if (arr.Length <= 1) return; 
+            if (arr.Length <= 1) return;
             int n = arr.Length;
             int mid = n / 2;
             int[] left = new int[mid];
@@ -47,7 +47,7 @@ namespace Algorithems.Sorting2
 
             var result = Merge(arr, left, right);
 
-            Console.WriteLine($"MergeSort:{string.Join(",",result)}");
+            Console.WriteLine($"MergeSort:{string.Join(",", result)}");
         }
 
         private static int[] Merge(int[] result, int[] left, int[] right)
@@ -91,4 +91,58 @@ namespace Algorithems.Sorting2
 
         }
     }
+
+    public class HeapMax
+    {
+
+        public static void Run(int[] arr)
+        {
+            // Heapify(arr, 0, arr.Length);
+            HeapifyMax(arr);
+            SortHeapify(arr);
+        }
+
+        private static void SortHeapify(int[] arr)
+        {
+            int n = arr.Length;
+            int largest = arr[0];
+            for (int i = n-1; i >=1; i--)
+            {
+                (arr[0], arr[i]) = (arr[i], arr[0]);
+                Heapify(arr,0,i);
+            }
+        }
+
+        private static void HeapifyMax(int[] arr)
+        {
+            int n = arr.Length;
+            for (int i = n / 2 - 1; i >= 0; i--)
+            {
+                Heapify(arr, i, n);
+            }
+        }
+
+        private static void Heapify(int[] arr, int i, int n)
+        {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            int largest = i;
+
+            if (left < n && arr[left] > arr[largest])
+                largest = left;
+            if (right < n && arr[right] > arr[largest])
+                largest = right;
+
+            if (largest != i)
+            {
+                (arr[i], arr[largest]) = (arr[largest], arr[i]);
+                Heapify(arr, largest, n);
+            }
+
+            Console.WriteLine($"HeapyMax: {string.Join(",", arr)}");
+
+        }
+    }
+
+    
 }

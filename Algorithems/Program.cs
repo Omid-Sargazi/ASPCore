@@ -6,4 +6,5 @@ int[] arr1 = new int[] { 74, 47, 98, -98, -85, 2, 11, 3 };
 int[] arr2= new int[] { 1, 2, 3 };
 
 // Sorting.Bubble(arr1);
-Sorting.SelectionSort(arr1);
+// Sorting.SelectionSort(arr1);
+Sorting.InsertionSort(arr1);

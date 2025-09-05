@@ -26,7 +26,69 @@ namespace Algorithems.Sorting2
             }
             (arr[i + 1], arr[hi]) = (arr[hi], arr[i + 1]);
 
-            return i+1;
+            return i + 1;
+        }
+
+        public static void MergeSort(int[] arr)
+        {
+            if (arr.Length <= 1) return; 
+            int n = arr.Length;
+            int mid = n / 2;
+            int[] left = new int[mid];
+            int[] right = new int[n - mid];
+
+            Array.Copy(arr, 0, left, 0, mid);
+            Array.Copy(arr, mid, right, 0, right.Length);
+
+            Console.WriteLine($"Left array:{string.Join(",", left)}");
+            Console.WriteLine($"Left array:{string.Join(",", right)}");
+            MergeSort(left);
+            MergeSort(right);
+
+            var result = Merge(arr, left, right);
+
+            Console.WriteLine($"MergeSort:{string.Join(",",result)}");
+        }
+
+        private static int[] Merge(int[] result, int[] left, int[] right)
+        {
+            int p1 = 0;
+            int p2 = 0;
+            int p3 = 0;
+
+            int n1 = left.Length;
+            int n2 = right.Length;
+
+            while (p1 < n1 && p2 < n2)
+            {
+                if (left[p1] < right[p2])
+                {
+                    result[p3] = left[p1];
+                    p1++;
+                }
+                else
+                {
+                    result[p3] = right[p2];
+                    p2++;
+                }
+                p3++;
+            }
+
+            while (p1 < n1)
+            {
+                result[p3] = left[p1];
+                p1++;
+                p3++;
+            }
+            while (p2 < n2)
+            {
+                result[p3] = right[p2];
+                p2++;
+                p3++;
+            }
+
+            return result;
+
         }
     }
 }

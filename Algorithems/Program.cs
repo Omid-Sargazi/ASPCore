@@ -32,7 +32,8 @@ public class Program
         await PrintAsync(memory);
         var Stored = memory;
 
-    SpanAndMemory.Run();
+        // SpanAndMemory.RunSpan();
+        await SpanAndMemory.RunMemory();
 
     }
 

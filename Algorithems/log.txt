@@ -1,0 +1,30 @@
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main()
+    {
+        byte[] buffer = new byte[1024];
+
+        using FileStream fs = new FileStream("logs.txt", FileMode.Open);
+
+        int bytesRead;
+        while ((bytesRead = await fs.ReadAsync(buffer)) > 0)
+        {
+            // بخش خوانده‌شده از فایل رو داخل Memory قرار می‌دیم
+            Memory<byte> memory = buffer.AsMemory(0, bytesRead);
+
+            // متد async که نیاز به حافظه پایدار داره
+            await ProcessLogAsync(memory);
+        }
+    }
+
+    static async Task ProcessLogAsync(Memory<byte> memory)
+    {
+        await Task.Delay(10); // شبیه پردازش async
+        string text = System.Text.Encoding.UTF8.GetString(memory.Span);
+        Console.WriteLine(text);
+    }
+}

@@ -20,10 +20,12 @@ public class Program
 
         // Sorts.Bubble(arr1);
 
-        var ht = new HashTableChaining(7);
-        foreach (var k in keys) ht.Insert(k);
-        ht.PrintTable();
-        Console.WriteLine(ht.Search(31));
+        // var ht = new HashTableChaining(7);
+        // foreach (var k in keys) ht.Insert(k);
+        // ht.PrintTable();
+        // Console.WriteLine(ht.Search(31));
+
+        HashTableChainingSimple.HashTableChainingSimpleRun();
     }
 
     public static async Task PrintAsync(Memory<int> mem)

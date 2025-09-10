@@ -5,6 +5,7 @@ using Algorithems.Sorting3;
 using Algorithems.Sortings;
 using Algorithems.Sorting3;
 using Algorithems.Hashing;
+using Algorithems.Patterns;
 
 public class Program
 {
@@ -25,7 +26,9 @@ public class Program
         // ht.PrintTable();
         // Console.WriteLine(ht.Search(31));
 
-        HashTableChainingSimple.HashTableChainingSimpleRun();
+        // HashTableChainingSimple.HashTableChainingSimpleRun();
+        IMessageService svc = new RetryDecorator(new LoggingDecorator(new EmailService()), tries: 3);
+        svc.Send("Hello, world");
     }
 
     public static async Task PrintAsync(Memory<int> mem)

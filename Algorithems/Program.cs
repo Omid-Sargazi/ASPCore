@@ -6,6 +6,7 @@ using Algorithems.Sortings;
 using Algorithems.Sorting3;
 using Algorithems.Hashing;
 using Algorithems.Patterns;
+using Algorithems.Trees;
 
 public class Program
 {
@@ -27,8 +28,9 @@ public class Program
         // Console.WriteLine(ht.Search(31));
 
         // HashTableChainingSimple.HashTableChainingSimpleRun();
-        IMessageService svc = new RetryDecorator(new LoggingDecorator(new EmailService()), tries: 3);
-        svc.Send("Hello, world");
+        // IMessageService svc = new RetryDecorator(new LoggingDecorator(new EmailService()), tries: 3);
+        // svc.Send("Hello, world");
+        RunTreeNode.Run();
     }
 
     public static async Task PrintAsync(Memory<int> mem)

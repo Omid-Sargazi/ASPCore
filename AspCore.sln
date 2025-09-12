@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithems", "Algorithems\Algorithems.csproj", "{98ECEFA8-8CF6-45B2-9A63-0469A2C75BFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure\DataStructure.csproj", "{ED2B88D0-BE98-42E0-8574-D648DDF4F73A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns", "Patterns\Patterns.csproj", "{6FD02D0B-AD4C-4159-84F1-7981FD90F2EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{98ECEFA8-8CF6-45B2-9A63-0469A2C75BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98ECEFA8-8CF6-45B2-9A63-0469A2C75BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98ECEFA8-8CF6-45B2-9A63-0469A2C75BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED2B88D0-BE98-42E0-8574-D648DDF4F73A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2B88D0-BE98-42E0-8574-D648DDF4F73A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2B88D0-BE98-42E0-8574-D648DDF4F73A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2B88D0-BE98-42E0-8574-D648DDF4F73A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD02D0B-AD4C-4159-84F1-7981FD90F2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD02D0B-AD4C-4159-84F1-7981FD90F2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD02D0B-AD4C-4159-84F1-7981FD90F2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD02D0B-AD4C-4159-84F1-7981FD90F2EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
